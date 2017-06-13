@@ -337,6 +337,7 @@ class Model(object):
             params.extend(cap_layer.params)
         self.add_component(final_layer)
         params.extend(final_layer.params)
+        print(len(params))
         if crf:
             self.add_component(transitions)
             params.append(transitions)
