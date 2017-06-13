@@ -274,7 +274,7 @@ class Model(object):
             final_output = word_for_output
 
         # Sentence to Named Entity tags - Score
-        final_layer = HiddenLayer(word_lstm_dim, n_tags, name='final_layer',
+        final_layer = HiddenLayer(2 * word_lstm_dim, n_tags, name='final_layer',
                                   activation=(None if crf else 'softmax'))
         tags_scores = final_layer.link(final_output)
 
