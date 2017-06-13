@@ -267,9 +267,9 @@ class Model(object):
                 [word_for_output, word_rev_output],
                 axis=1
             )
-            tanh_layer = HiddenLayer(2 * word_lstm_dim, word_lstm_dim,
-                                     name='tanh_layer', activation='tanh')
-            final_output = tanh_layer.link(final_output)
+            #tanh_layer = HiddenLayer(2 * word_lstm_dim, word_lstm_dim,
+             #                        name='tanh_layer', activation='tanh')
+            #final_output = tanh_layer.link(final_output)
         else:
             final_output = word_for_output
 
