@@ -5,7 +5,7 @@ from utils import create_dico, create_mapping, zero_digits
 from utils import iob2, iob_iobes
 
 
-def load_sentences(path, lower, zeros):
+def load_sentences(path, lower, zeros, number):
     """
     Load sentences. A line must contain at least a word and its tag.
     Sentences are separated by empty lines.
@@ -18,7 +18,7 @@ def load_sentences(path, lower, zeros):
             if len(sentence) > 0:
                 if 'DOCSTART' not in sentence[0][0]:
                     sentences.append(sentence)
-                    if len(sentences) == 5000:
+                    if len(sentences) == number:
                         break
                 sentence = []
         else:
