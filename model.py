@@ -338,9 +338,9 @@ class Model(object):
         if crf:
             self.add_component(transitions)
             params.append(transitions)
-        if word_bidirect:
-            self.add_component(tanh_layer)
-            params.extend(tanh_layer.params)
+        #if word_bidirect:
+        #    self.add_component(tanh_layer)
+        #    params.extend(tanh_layer.params)
 
         # Prepare train and eval inputs
         eval_inputs = []
