@@ -241,9 +241,11 @@ class Model(object):
             inputs.append(cap_layer.link(cap_ids))
 
         # Prepare final input
+        print "len of inputs: " +str(len(inputs))
         if len(inputs) != 1:
             inputs = T.concatenate(inputs, axis=1)
-
+        else: 
+            inputs = T.concatenate(inputs, axis=1)
         #
         # Dropout on final input
         #
@@ -268,7 +270,7 @@ class Model(object):
                 axis=1
             )
             #tanh_layer = HiddenLayer(2 * word_lstm_dim, word_lstm_dim,
-             #                        name='tanh_layer', activation='tanh')
+            #                         name='tanh_layer', activation='tanh')
             #final_output = tanh_layer.link(final_output)
         else:
             final_output = word_for_output

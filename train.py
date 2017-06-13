@@ -141,7 +141,7 @@ zeros = parameters['zeros']
 tag_scheme = parameters['tag_scheme']
 
 # Load sentences
-train_sentences = loader.load_sentences(opts.train, lower, zeros, 5000)
+train_sentences = loader.load_sentences(opts.train, lower, zeros, -1)
 dev_sentences = loader.load_sentences(opts.dev, lower, zeros, -1)
 test_sentences = loader.load_sentences(opts.test, lower, zeros, -1)
 

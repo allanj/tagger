@@ -18,9 +18,9 @@ def load_sentences(path, lower, zeros, number):
             if len(sentence) > 0:
                 if 'DOCSTART' not in sentence[0][0]:
                     sentences.append(sentence)
-                    if len(sentences) == number:
-                        break
                 sentence = []
+                if len(sentences) == number:
+                    break
         else:
             word = line.split()
             assert len(word) >= 2
@@ -28,7 +28,6 @@ def load_sentences(path, lower, zeros, number):
     if len(sentence) > 0:
         if 'DOCSTART' not in sentence[0][0]:
             sentences.append(sentence)
-    print "number of sentences: "+len(sentences)
     return sentences
 
 
