@@ -92,6 +92,10 @@ optparser.add_option(
     "-r", "--reload", default="0",
     type='int', help="Reload the last saved model"
 )
+optparser.add_option(
+    "-N", "--train_num", default="-1",
+    type='int', help="The number of training data"
+)
 opts = optparser.parse_args()[0]
 
 # Parse parameters
@@ -141,7 +145,7 @@ zeros = parameters['zeros']
 tag_scheme = parameters['tag_scheme']
 
 # Load sentences
-train_sentences = loader.load_sentences(opts.train, lower, zeros, -1)
+train_sentences = loader.load_sentences(opts.train, lower, zeros, opts.train_num)
 dev_sentences = loader.load_sentences(opts.dev, lower, zeros, -1)
 test_sentences = loader.load_sentences(opts.test, lower, zeros, -1)
 
