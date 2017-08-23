@@ -5,7 +5,7 @@ from utils import create_dico, create_mapping, zero_digits
 from utils import iob2, iob_iobes
 
 
-def load_sentences(path, lower, zeros):
+def load_sentences(path, lower, zeros, number):
     """
     Load sentences. A line must contain at least a word and its tag.
     Sentences are separated by empty lines.
@@ -19,6 +19,8 @@ def load_sentences(path, lower, zeros):
                 if 'DOCSTART' not in sentence[0][0]:
                     sentences.append(sentence)
                 sentence = []
+                if len(sentences) == number:
+                    break
         else:
             word = line.split()
             assert len(word) >= 2
@@ -64,6 +66,7 @@ def word_mapping(sentences, lower):
     print "Found %i unique words (%i in total)" % (
         len(dico), sum(len(x) for x in words)
     )
+    print "length of unique words: " + str(len(id_to_word))
     return dico, word_to_id, id_to_word
 
 

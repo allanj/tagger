@@ -92,6 +92,18 @@ optparser.add_option(
     "-r", "--reload", default="0",
     type='int', help="Reload the last saved model"
 )
+optparser.add_option(
+    "-N", "--train_num", default="-1",
+    type='int', help="The number of training data"
+)
+optparser.add_option(
+    "-P", "--dev_num", default="-1",
+    type='int', help="The number of development data"
+)
+optparser.add_option(
+    "-Q", "--test_num", default="-1",
+    type='int', help="The number of test data"
+)
 opts = optparser.parse_args()[0]
 
 # Parse parameters
@@ -141,9 +153,9 @@ zeros = parameters['zeros']
 tag_scheme = parameters['tag_scheme']
 
 # Load sentences
-train_sentences = loader.load_sentences(opts.train, lower, zeros)
-dev_sentences = loader.load_sentences(opts.dev, lower, zeros)
-test_sentences = loader.load_sentences(opts.test, lower, zeros)
+train_sentences = loader.load_sentences(opts.train, lower, zeros, opts.train_num)
+dev_sentences = loader.load_sentences(opts.dev, lower, zeros, opts.dev_num)
+test_sentences = loader.load_sentences(opts.test, lower, zeros, opts.test_num)
 
 # Use selected tagging scheme (IOB / IOBES)
 update_tag_scheme(train_sentences, tag_scheme)
