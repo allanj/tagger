@@ -157,6 +157,7 @@ train_sentences = loader.load_sentences(opts.train, lower, zeros, opts.train_num
 dev_sentences = loader.load_sentences(opts.dev, lower, zeros, opts.dev_num)
 test_sentences = loader.load_sentences(opts.test, lower, zeros, opts.test_num)
 
+
 # Use selected tagging scheme (IOB / IOBES)
 update_tag_scheme(train_sentences, tag_scheme)
 update_tag_scheme(dev_sentences, tag_scheme)
